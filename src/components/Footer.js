@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import TinyLogo from "./TinyLogo";
 import { FaFacebookSquare, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationPin } from "react-icons/md";
-import TinyLogo from "./TinyLogo";
-import { NavHashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -26,39 +26,34 @@ const Footer = () => {
           <h1>Wall Management</h1>
           <p style={{ color: "var(--orange)" }}>Building & Branding</p>
         </div>
-        <div className='footer-nav'>
+        <div className="footer-nav">
           <ul>
             <li>
-              <NavHashLink to="#home-section">Home</NavHashLink>
-            </li>
-            <li>
-              <div className="v-line"></div>
-            </li>
-
-            <li>
-              <NavHashLink to="#about-section">About</NavHashLink>
-            </li>
-            <li>
-              <div className="v-line"></div>
-            </li>
-
-            <li>
-              <NavHashLink to="#unique-section">
-                what makes us unique
-              </NavHashLink>
-            </li>
-            <li>
-              <div className="v-line"></div>
-            </li>
-
-            <li>
-              <NavHashLink to="#projects-section">Our works</NavHashLink>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <div className="v-line"></div>
             </li>
             <li>
-              <NavHashLink to="#contact-section">Contact</NavHashLink>
+              <Link to="/why-choose-us">Why choose us</Link>
+            </li>
+            <li>
+              <div className="v-line"></div>
+            </li>
+            <li>
+              <Link to="/ourworks">Our works</Link>
+            </li>
+            <li>
+              <div className="v-line"></div>
+            </li>
+            <li>
+              <Link to="/gallery">Our gallery</Link>
+            </li>
+            <li>
+              <div className="v-line"></div>
+            </li>
+            <li>
+              <Link to="/contact">Contact us</Link>
             </li>
           </ul>
         </div>
@@ -85,26 +80,27 @@ const Footer = () => {
           </h5>
           <div style={{ display: "flex", gap: "1rem" }}>
             <p>
-              <MdLocationPin /> 1, Joel Sholanke Street, Powerline Asese, Ogun state.
-              Nigeria.{" "}
+              <MdLocationPin /> 1, Joel Sholanke Street, Powerline Asese, Ogun
+              state. Nigeria.{" "}
             </p>
             <p>
               <FaPhoneAlt /> 07033926060, 08028641303, 08180751888{" "}
             </p>
             <p>
-              <MdEmail /> wallmanagement@yahoo.com
+              <MdEmail /> managingwalls@gmail.com, wallmanagement@yahoo.com
             </p>
           </div>
           <div>
-            <h5>
-              Follow us on <FaFacebookSquare />:  Wall management.
-            </h5>
-            
+            <Link to='#'>
+              Follow us on <FaFacebookSquare />: Wall management.
+            </Link>
           </div>
         </div>
       </div>
       <br />
-      <p className="copyright">Copyright &copy; Wall Management. ALL rights reserved 2023</p>
+      <p className="copyright">
+        Copyright &copy; Wall Management. ALL rights reserved 2023
+      </p>
     </footer>
   );
 };

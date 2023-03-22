@@ -3,8 +3,8 @@ import { FaInfoCircle } from "react-icons/fa";
 import { MdSend, MdThumbUp, MdCheckCircle, MdEmail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 // Regular Expressions...
 const NAME_REGEX = /^[a-zA-Z][a-zA-Z0-9-_ ]{2,23}$/;
@@ -94,25 +94,29 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
+    emailjs
+      .sendForm(
         `${process.env.REACT_APP_SERVICE_ID}`,
         `${process.env.REACT_APP_TEMPLATE_ID}`,
         form.current,
         `${process.env.REACT_APP_PUBLIC_KEY}`
       )
 
-   .then((result) => {
+      .then(
+        (result) => {
           console.log(result.text);
           setSuccess(true);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-          alert('Something went wrong, check your connection and try again');
-      });
+          alert("Something went wrong, check your connection and try again");
+        }
+      );
   };
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       {/* Success Page */}
 
       {success ? (
@@ -132,12 +136,18 @@ const Contact = () => {
         </section>
       ) : (
         <section className="contact-section" id="contact-section">
-           <div className="header-text">
-          {/* <TinyLogo logoColor="var(--bg-white)" /> */}
-          <h1 className="display-3">
-          <MdEmail color="var(--bg-white)" />{" "}
-            Contact Us</h1>
-        </div>
+          <div className="header-text">
+            <TinyLogo logoColor="var(--bg-white)" />
+            <h1 className="display-3">
+              <MdEmail color="var(--bg-white)" /> Contact Us
+            </h1>
+          </div>
+
+          <img
+            src={`${process.env.PUBLIC_URL}/images/Animated Images/Contact man.png`}
+            alt="contact man"
+            id="contact-man-img"
+          />
           <h1 className="display-2">
             <span>Get </span> in <span>Touch</span>
           </h1>
@@ -146,7 +156,6 @@ const Contact = () => {
               textAlign: "center",
               width: "70vw",
               fontSize: "17px",
-              fontWeight: "bold",
             }}
           >
             It is our firm belief that we can satisfy your requirements in
@@ -168,7 +177,15 @@ const Contact = () => {
 
           {/* Warnings... */}
 
-          <div className="warnings-info">
+          <div
+            className="warnings-info"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             {/* firstname info */}
 
             <p

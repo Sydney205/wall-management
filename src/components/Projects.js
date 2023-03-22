@@ -6,8 +6,13 @@ import { MdEmail, MdPeople } from "react-icons/md";
 import { useNavigate, Link } from "react-router-dom";
 import Footer from "./Footer";
 
-const Projects = () => {
+const Projects = ({scrollToTop}) => {
   const navigate = useNavigate();
+
+  const nextPage = () => {
+    navigate('/contact');
+    scrollToTop();
+  }
 
   return (
     <>
@@ -17,6 +22,8 @@ const Projects = () => {
           <TinyLogo logoColor="var(--bg-white)" />
           <h1 className="display-3">Our Works</h1>
         </div>
+
+        <img src={`${process.env.PUBLIC_URL}/images/Animated Images/building-construction.png`} alt='building construction' id='building-animated-img'/>
 
         <div className="building-works">
           <div className="part1">
@@ -168,7 +175,7 @@ const Projects = () => {
             mutually business relationship with you.
           </p>
         </div>
-        <button onClick={() => navigate("/contact")}>
+        <button onClick={nextPage}>
           <MdEmail /> Contact Us <FaChevronRight />
         </button>
       </section>

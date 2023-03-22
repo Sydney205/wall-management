@@ -4,8 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { FaCheckCircle, FaChevronRight, FaRegThumbsUp } from "react-icons/fa";
 import Footer from "./Footer";
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ({ scrollToTop }) => {
   const navigate = useNavigate();
+
+  const nextPage = () => {
+    navigate("/ourworks");
+    scrollToTop();
+  };
 
   return (
     <>
@@ -61,6 +66,7 @@ const WhyChooseUs = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          className="our-uniqueness"
         >
           <h1 className="display-6" style={{ fontWeight: "bold" }}>
             Our strategy...
@@ -80,6 +86,7 @@ const WhyChooseUs = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          className="our-uniqueness"
         >
           <h1 className="display-6" style={{ fontWeight: "bold" }}>
             Team Work and Creativity
@@ -88,8 +95,8 @@ const WhyChooseUs = () => {
             Wall Management's most valuable assets are the hard-working and
             highly motivated workers. At Wall Management, our management do
             their best to invent new ideas that benefit your heart desire and
-            Modern ideas, to accept challenges, to aim for the highest level
-            of efficiency and to deliver within the time frame
+            Modern ideas, to accept challenges, to aim for the highest level of
+            efficiency and to deliver within the time frame
           </p>
         </div>
         <div
@@ -100,6 +107,7 @@ const WhyChooseUs = () => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          className="our-uniqueness"
         >
           <h1 className="display-6" style={{ fontWeight: "bold" }}>
             Future Commitment
@@ -110,12 +118,15 @@ const WhyChooseUs = () => {
             to her customers.
           </p>
         </div>
-        <div className="heading-logo" style={{marginTop: '5rem'}}>
+        <div className="heading-logo" style={{ marginTop: "5rem" }}>
           <div className="line"></div>
           <FaCheckCircle size={"3rem"} color="var(--dark-blue)" />
           <div className="line"></div>
         </div>
-        <h1 className="display-2" style={{marginTop: '2rem', marginBottom: '4rem'}}>
+        <h1
+          className="display-2"
+          style={{ marginTop: "2rem", marginBottom: "4rem" }}
+        >
           <span className="who">We</span> are{" "}
           <span className="are">Certified</span>
         </h1>
@@ -123,10 +134,10 @@ const WhyChooseUs = () => {
         <img
           src={process.env.PUBLIC_URL + "/images/certificate.jpg"}
           alt="certificate"
-          style={{height: '100vh'}}
+          style={{ height: "100vh" }}
         />
 
-        <button onClick={() => navigate("/ourworks")}>
+        <button onClick={nextPage}>
           Our Works <FaChevronRight />
         </button>
       </section>

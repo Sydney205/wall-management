@@ -1,15 +1,15 @@
 import React from 'react'
 import Navbar from './Navbar'
-import Home from './Home'
+import Home from './Home';
 import About from './About';
 import Footer from './Footer';
 
-function HomePage() {
+function HomePage({scrollToTop}) {
   return (
     <main>
-        <Navbar />
+        <Navbar scrollToTop={scrollToTop}/>
         <Home />
-        <About />
+        <About scrollToTop={scrollToTop}/>
         <Footer />
     </main>
   )

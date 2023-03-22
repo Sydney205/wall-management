@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 // import { NavHashLink } from "react-router-hash-link";
-import { FaBars, FaPhoneVolume, FaRegImages } from "react-icons/fa";
-import { MdCancel } from "react-icons/md";
+import {
+  FaBars,
+  FaHome,
+  FaPhoneVolume,
+  FaRegImages,
+  FaThumbsUp,
+  FaHammer,
+} from "react-icons/fa";
+import { MdCancel, MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ scrollToTop }) => {
   const navigate = useNavigate();
 
-  const [boxShadow, setBoxShadow] = useState("");
+  const [boxShadow, setBoxShadow] = useState("none");
   const [sidebarIcon, setSidebarIcon] = useState(<FaBars />);
   const [sidebarHeight, setSidebarHeight] = useState("-100%");
   const [num, setNum] = useState(1);
@@ -17,20 +24,25 @@ const Navbar = () => {
       setSidebarIcon(<MdCancel />);
       setSidebarHeight("0%");
       setNum(2);
-      setBoxShadow("none");
+      setBoxShadow("0 0 20px #000");
     } else {
       setSidebarHeight("-100%");
       setSidebarIcon(<FaBars />);
       setNum(1);
-      setBoxShadow("");
+      setBoxShadow("none");
     }
   };
 
-  const onLinkClicked = () => {
+  const onMobileLinkClicked = () => {
     setSidebarHeight("-100%");
     setSidebarIcon(<FaBars />);
     setNum(1);
     setBoxShadow("");
+    scrollToTop();
+  };
+
+  const navLinkCLicked = () => {
+    scrollToTop();
   };
 
   return (
@@ -48,22 +60,26 @@ const Navbar = () => {
         />
         <ul className="nav nav-pills justify-content-center">
           <li className="nav-item">
-            <Link to="/" className="nav-link active">
+            <Link to="/" className="nav-link active" onClick={navLinkCLicked}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/why-choose-us" className="nav-link">
+            <Link
+              to="/why-choose-us"
+              className="nav-link"
+              onClick={navLinkCLicked}
+            >
               Why Choose us
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/ourworks" className="nav-link">
+            <Link to="/ourworks" className="nav-link" onClick={navLinkCLicked}>
               Our works
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link">
+            <Link to="/contact" className="nav-link" onClick={navLinkCLicked}>
               Contact Us
             </Link>
           </li>
@@ -84,34 +100,58 @@ const Navbar = () => {
 
       {/* Sidebar */}
 
-      <div className="sidebar" style={{ top: sidebarHeight }}>
-        <ul style={{ height: sidebarHeight }}>
+      <div className="sidebar" style={{ left: sidebarHeight }}>
+        <ul style={{ left: sidebarHeight }}>
           <li className="nav-item">
-            <Link to="/" className="nav-link active" onClick={onLinkClicked}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/ourworks" className="nav-link" onClick={onLinkClicked}>
-              works
+            <Link
+              to="/"
+              className="nav-link active"
+              onClick={onMobileLinkClicked}
+            >
+              <FaHome /> Home
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/ourworks/gallery"
+              to="/why-choose-us"
               className="nav-link"
-              onClick={onLinkClicked}
+              onClick={onMobileLinkClicked}
             >
-              Gallery
+              <FaThumbsUp /> Why choose us
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link" onClick={onLinkClicked}>
-              Contact us
+            <Link
+              to="/ourworks"
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
+              <FaHammer /> Our works
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/contact"
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
+              <MdEmail /> Contact us
+            </Link>
+          </li>
+
+          {/* Gallery and Call Button */}
+
+          <li>
+            <Link to="/gallery">
+              <FaRegImages /> Gallery
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <FaPhoneVolume /> Call us
             </Link>
           </li>
         </ul>
-        <div className="nav-icons"></div>
       </div>
     </>
   );

@@ -3,9 +3,14 @@ import { FaCheckCircle, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import TinyLogo from "./TinyLogo";
 
-const About = () => {
+const About = ({scrollToTop}) => {
 
   const navigate = useNavigate();
+
+  const nextPage = () => {
+    navigate('/why-choose-us');
+    scrollToTop();
+  }
 
   return (
     <section className="about-section" id="about-section">
@@ -58,7 +63,7 @@ const About = () => {
       <br />
 
 
-      <button onClick={() => navigate('/why-choose-us')}>Why choose us <FaChevronRight /></button>
+      <button onClick={nextPage}>Why choose us <FaChevronRight /></button>
     </section>
   );
 };
