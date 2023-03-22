@@ -137,7 +137,6 @@ const Contact = () => {
       ) : (
         <section className="contact-section" id="contact-section">
           <div className="header-text">
-            <TinyLogo logoColor="var(--bg-white)" />
             <h1 className="display-3">
               <MdEmail color="var(--bg-white)" /> Contact Us
             </h1>
