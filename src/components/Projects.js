@@ -20,7 +20,7 @@ const Projects = ({scrollToTop}) => {
       <section className="projects-section" id="projects-section">
         <div className="header-text">
           <TinyLogo logoColor="var(--bg-white)" />
-          <h1 className="display-3">Our Works</h1>
+          <h1 className="display-5">Our Works</h1>
         </div>
 
         <img src={`${process.env.PUBLIC_URL}/images/Animated Images/building-construction.png`} alt='building construction' id='building-animated-img'/>
@@ -32,7 +32,7 @@ const Projects = ({scrollToTop}) => {
               <FaHammer color="var(--orange)" /> BUILDING{" "}
               <span style={{ color: "var(--orange)" }}>WORKS</span>
             </h2>
-            <p>
+            <p style={{fontSize: '25px'}}>
               What we do on buildings...
               <br />
               <span

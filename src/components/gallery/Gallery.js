@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from '../Navbar';
 import { useNavigate } from "react-router-dom";
 import { FaImages } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
@@ -6,14 +7,16 @@ import { MdCancel } from "react-icons/md";
 const Album = () => {
   const navigate = useNavigate();
   return (
+    <>
+    <Navbar />
     <section className="album-section">
       <MdCancel className="cancel-icon" onClick={() => navigate(-1)}/>
       <h1>
-        <FaImages />
+        <FaImages /><br />
         Welcome to our Gallery
       </h1>
       <div className="img-grid">
-        <div className="img-group" onClick={() => navigate('/ourworks/gallery/all-image')}>
+        <div className="img-group" onClick={() => navigate('/ourworks/gallery/allphotos')}>
           <img src={`${process.env.PUBLIC_URL}/images/gal83.jpg`} alt="ask" />
           <div className="img-tag">All Photos</div>
         </div>
@@ -21,7 +24,7 @@ const Album = () => {
           <img src={`${process.env.PUBLIC_URL}/images/gal2.jpg`} alt="ask" />
           <div className="img-tag">Buildings</div>
         </div>
-        <div className="img-group" onClick={() => navigate('/ourworks/gallery/stone-works')}>
+        <div className="img-group" onClick={() => navigate('/ourworks/gallery/stoneworks')}>
           <img src={`${process.env.PUBLIC_URL}/images/gal3.jpg`} alt="ask" />
           <div className="img-tag">Stone works</div>
         </div>
@@ -59,6 +62,7 @@ const Album = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

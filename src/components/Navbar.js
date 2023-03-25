@@ -142,12 +142,16 @@ const Navbar = ({ scrollToTop }) => {
           {/* Gallery and Call Button */}
 
           <li>
-            <Link to="/gallery">
+            <Link
+              to="/gallery"
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
               <FaRegImages /> Gallery
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="#" className="nav-link" onClick={onMobileLinkClicked}>
               <FaPhoneVolume /> Call us
             </Link>
           </li>

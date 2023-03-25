@@ -137,7 +137,7 @@ const Contact = () => {
       ) : (
         <section className="contact-section" id="contact-section">
           <div className="header-text">
-            <h1 className="display-3">
+            <h1 className="display-5">
               <MdEmail color="var(--bg-white)" /> Contact Us
             </h1>
           </div>

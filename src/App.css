@@ -193,6 +193,7 @@ body {
   /* border-right: 2px solid var(--bg-white); */
   box-shadow: 0 0 20px #000;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .sidebar ul {
@@ -590,7 +591,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: none;
-  padding: 3rem 0 6em 0;
   background: var(--bg-white);
   text-align: center;
 }
@@ -600,12 +600,12 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45vh;
+  height: 30vh;
   background: var(--nav-dark);
   color: var(--bg-white);
   transform: skewX(4deg);
   transform: skewY(4deg);
-  display: none;
+  padding-top: 6rem;
 }
 
 .projects-section .header-text h1 {
@@ -615,7 +615,7 @@ body {
 }
 
 .projects-section .tiny-wall-logo {
-  margin-bottom: -2rem;
+  margin-bottom: -10px;
 }
 
 .projects-section .tiny-wall-logo .tiny-wall1 {
@@ -627,8 +627,8 @@ body {
 }
 
 #building-animated-img {
-  height: 100vh;
-  width: 70vw;
+  height: 60vh;
+  width: 35vw;
   margin-bottom: -6rem;
 }
 
@@ -736,13 +736,13 @@ body {
   margin-bottom: 3rem;
 }
 
-.project-section .clients p {
+.projects-section .clients p {
   font-size: 1.2rem;
   text-align: center;
   transform: scale(0.89);
 }
 
-.project-section .part2 ul li {
+.projecst-section .part2 ul li {
   width: 50vw;
   border: 1px solid rgb(192, 188, 188);
   border-left: 2px solid var(--nav-dark);
@@ -781,7 +781,6 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--bg-white);
-  padding:3rem 0 6rem 0;
 }
 
 #contact-man-img {
@@ -794,12 +793,12 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45vh;
+  height: 30vh;
   background: var(--nav-dark);
   color: var(--bg-white);
   transform: skewX(4deg);
   transform: skewY(4deg);
-  display: none;
+  padding-top: 6rem;
 }
 
 .contact-section .header-text h1 {
@@ -818,6 +817,10 @@ body {
 
 .contact-section .tiny-wall-logo .tiny-wall2 {
   border-top-color: var(--bg-white);
+}
+
+.contact-section h1 {
+  margin-top: -20px;
 }
 
 .contact-section h1 span:nth-child(1) {
@@ -1072,11 +1075,24 @@ body {
 
 /* ----------------------------------------- IMAGE GALLERY SECTION ------------------------------------------ */
 
+.slide-frame .cancel-icon {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  font-size: 2.5rem;
+}
+
+.slide-frame .cancel-icon:hover {
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+
 .slide-page {
   width: 100%;
-  min-height: 100vh;
+  height: 110vh;
   background: var(--nav-dark);
-  /* padding: 2rem 0 6rem 0; */
+  padding: -3rem 0 6rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1084,7 +1100,7 @@ body {
 }
 
 .slider {
-  margin-top: 3rem;
+  margin-top: 1rem;
   width: 60vw;
   height: 60vh;
   border: none;
@@ -1099,7 +1115,7 @@ body {
 
 .left-arrow-container {
   position: absolute;
-  top: 70%;
+  top: 40%;
   left: 10%;
   border: none;
   border-radius: 50px;
@@ -1108,7 +1124,7 @@ body {
 
 .right-arrow-container {
   position: absolute;
-  top: 70%;
+  top: 40%;
   right: 10%;
   border: none;
   border-radius: 50px;
@@ -1166,9 +1182,9 @@ body {
 }
 
 .big-frame img {
-  max-width: 60vw;
-  height: 60vh;
-  border-radius: 10px;
+  max-width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
 }
 
 .slide-frame a:hover {
@@ -1183,8 +1199,8 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 6em;
-  background: #111;
-  color: white;
+  background: var(--bg-white);
+  color: var(--nav-dark);
 }
 
 .album-section h1 {
@@ -1221,44 +1237,31 @@ body {
   transform: scale(0.95);
 }
 
-.new-home {
+.gallery-section {
   width: 100%;
-  height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../public/images/Background.jpg");
-  background-position: center;
-  background-size: cover;
-  color: white;
+  padding: 4rem 0 2rem 0;
 }
 
-.new-home .new-home-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gallery-section .photos-group {
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content;
+  grid-template-rows: max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content;
+  gap: 1rem;
 }
 
-.new-home .new-home-content .site-names {
-  width: max-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.gallery-section .photos-group img {
+  width: 20vw;
+  height: 40vh;
+  border-radius: 10px;
 }
 
-.new-home .new-home-content .site-names h1 {
-  font-size: 12rem;
-  font-weight: bold;
-  margin-bottom: -1rem;
-}
-
-.new-home .new-home-content .site-names h5 {
-  font-size: 4.2rem;
-  font-weight: bold;
-  color: var(--orange);
+.allphotos-section .all-group img:hover {
+  transform: scale(0.95);
 }
 
 /* ----------------------------------------- MOBILE PHONES UI --------------------------------------------- */
@@ -1305,8 +1308,8 @@ body {
   .home-section div {
     position: absolute;
     top: 65%;
-    left: 20%;
-    right: 20%;
+    left: 25%;
+    right: 25%;
     display: flex;
     /* padding-left: 2rem; */
     flex-direction: column;
@@ -1319,7 +1322,7 @@ body {
     display: none;
   }
 
-  .wall-logo {
+  /* .wall-logo {
     top: 28%;
     left: 35%;
     right: 35%;
@@ -1333,8 +1336,14 @@ body {
 
   .wall-logo .wall2 {
     width: 80px;
-
     border-top: 20px solid rgb(100, 75, 240);
+  } */
+
+  .wall-logo {
+    top: 28%;
+    left: 25%;
+    right: 25%;
+    transform: scale(2);
   }
 
   .about-section .main-content {
@@ -1375,16 +1384,21 @@ body {
   }
 
   .projects-section #building-animated-img {
-    display: none;
+    /* display: none; */
+    width: 90vw;
+    height: 60vh;
+    margin-bottom: -3rem;
   }
 
   .projects-section .header-text {
-    display: contents;
-    height: 37vh;
+    display: flex;
+    height: max-content;
   }
 
-  .projects-section .header-text h1 {
-    margin-bottom: -2rem;
+  .projects-section .tiny-wall-logo {
+    margin-top: -5px !important;
+    margin-bottom: 8px !important;
+    transform: scale(1.3);
   }
 
   .projects-section .building-works p {
@@ -1420,12 +1434,14 @@ body {
   }
 
   .contact-section #contact-man-img {
-    display: none;
+    /* display: none; */
+    width: 70vw;
+    height: 40vh;
   }
 
   .contact-section .header-text {
-    display: contents;
-    height: 37vh;
+    display: flex;
+    height: 20vh;
   }
 
   .contact-section p {
@@ -1489,12 +1505,68 @@ body {
     width: 80vw;
   }
 
-  .slide-nav img {
-    width: 40vw;
+  .album-section {
+    padding-top: 8em;
+    background: var(--bg-white);
+    color: var(--nav-dark);
+  }
+
+  .album-section h1 {
+    text-align: center;
+  }
+
+  .album-section .img-grid {
+    display: grid;
+    grid-template-columns: 45vw 45vw;
+    grid-template-rows: 30vh 30vh 30vh 30vh 30vh 30vh;
+    gap: 5px;
+    row-gap: 2.5rem;
+  }
+
+  .album-section .img-grid .img-group img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+  }
+
+  .album-section .img-grid .img-group .img-tag {
+    text-align: center;
+    background-color: var(--orange);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    opacity: 0.9;
+  }
+
+  .gallery-section {
+    padding: 2rem 0 2rem 0;
+  }
+
+  .gallery-section .photos-group {
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content max-content;
+    gap: 5px;
+    margin-top: 1rem;
+  }
+
+  .gallery-section .photos-group img {
+    width: 45vw;
+    height: 30vh;
+    border-radius: 5px;
+  }
+
+  .slide-frame {
+    padding-top: 1rem !important;
   }
 
   .big-frame {
-    width: 80vw !important;
+    width: 95vw !important;
+    margin-top: 0.75rem !important;
   }
 
   .big-frame img {
@@ -1512,18 +1584,65 @@ body {
   }
 
   .slide-nav {
-    margin-top: 2rem;
+    margin-top: 1rem;
+  }
+
+  .slide-nav img {
+    width: 40vw;
   }
 
   /* ---------------------------- Smaller screens -------------------------------- */
 
   @media screen and (max-width: 320px) {
-    .wall-logo .wall1 {
-      margin-right: -3rem;
+    #nav {
+      padding-top: 1rem;
+      height: fit-content;
+    }
+
+    .projects-section .tiny-wall-logo {
+      margin-top: -5px !important;
+      margin-bottom: 8px !important;
+      transform: scale(1.1);
+    }
+
+    .contact-section .header-text {
+      height: max-content;
+    }
+
+    .sidebar li:nth-child(5) {
+      /* width: 100vw; */
+      margin-top: 10vh;
+      /* margin-left: -2rem;
+      background-color: var(--bg-white);
+      padding-left: 3rem; */
+    }
+
+    .wall-logo {
+      transform: scale(1.5);
+    }
+
+    .home-section {
+      min-height: 100vh;
     }
 
     .home-section div {
-      transform: scale(0.95);
+      width: 40vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      transform: skewX(-5deg) !important;
+      transform: skewY(-5deg) !important;
+    }
+
+    .home-section div h1 {
+      margin-top: -4vh;
+      transform: scale(0.79);
+    }
+
+    .home-section .typed-text {
+      margin-top: -1vh;
+      transform: scale(0.79);
     }
   }
 }
