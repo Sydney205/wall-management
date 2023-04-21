@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import { MdSend, MdThumbUp, MdCheckCircle, MdEmail } from "react-icons/md";
+import { MdSend, MdThumbUp, MdCheckCircle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import Navbar from "./Navbar";
+import Navbar from './WhiteNav';
 import Footer from "./Footer";
 
 // Regular Expressions...
@@ -136,20 +136,22 @@ const Contact = () => {
         </section>
       ) : (
         <section className="contact-section" id="contact-section">
-          <div className="header-text">
+          {/* <div className="header-logo">
             <h1 className="display-5">
               <MdEmail color="var(--bg-white)" /> Contact Us
             </h1>
-          </div>
+          </div> */}
 
           <img
             src={`${process.env.PUBLIC_URL}/images/Animated Images/Contact man.png`}
             alt="contact man"
             id="contact-man-img"
           />
+          <div className='header-text'>
           <h1 className="display-2">
             <span>Get </span> in <span>Touch</span>
           </h1>
+          </div>
           <p
             style={{
               textAlign: "center",

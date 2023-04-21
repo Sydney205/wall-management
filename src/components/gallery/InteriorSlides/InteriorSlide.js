@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { interiorList } from "./interiorArray";
-import { FaChevronRight, FaChevronLeft, FaRegImages } from "react-icons/fa";
-import { HashLink } from "react-router-hash-link";
+import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import InteriorNav from "./InteriorNav";
 
 const InteriorSlide = () => {
+  const navigate = useNavigate();
+
   const [imageIndex, setImageIndex] = useState(0);
 
   const slideRight = () => {
     setImageIndex(imageIndex + 1);
-    if (imageIndex === 9) {
+    if (imageIndex === 14) {
       setImageIndex(0);
     }
   };
@@ -17,7 +19,7 @@ const InteriorSlide = () => {
   const slideLeft = () => {
     setImageIndex(imageIndex - 1);
     if (imageIndex === 0) {
-      setImageIndex(9);
+      setImageIndex(14);
     }
   };
 
@@ -46,17 +48,30 @@ const InteriorSlide = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "90vw",
-    height: "60vh",
+    maxWidth: "60vw",
+    maxHeight: "80vh",
     border: "none",
     borderRadius: "10px",
     overflow: "hidden",
-    marginTop: "2rem",
+    // marginTop: "1rem",
   };
 
   return (
     <section className="slide-frame" style={slideFrame}>
-      <FaRegImages size={"3rem"} color="var(--orange)" />
+      <div
+        style={{
+          position: "absolute",
+          top: "5%",
+          left: "5%",
+          transform: "scale(2)",
+          color: "orange",
+        }}
+        className="cancel-icon"
+        onClick={() => navigate(-1)}
+      >
+        <FaArrowLeft /> Back
+      </div>
+      {/* <FaRegImages size={"3rem"} color="var(--orange)" /> */}
 
       <div className="left-arrow-container">
         <FaChevronLeft
@@ -78,19 +93,6 @@ const InteriorSlide = () => {
         {mainPhoto}
       </div>
       <InteriorNav setImageIndex={setImageIndex} />
-
-      <HashLink
-        to="/#home-section"
-        style={{
-          textDecoration: "none",
-          color: "white",
-          fontWeight: "bold",
-          marginTop: "3rem",
-          fontSize: "1.5rem",
-        }}
-      >
-        <FaChevronLeft /> Continue to site
-      </HashLink>
     </section>
   );
 };

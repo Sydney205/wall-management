@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { NavHashLink } from "react-router-hash-link";
 import {
   FaBars,
   FaHome,
+  FaBuilding,
   FaPhoneVolume,
-  FaRegImages,
+  FaFacebook,
   FaThumbsUp,
   FaHammer,
 } from "react-icons/fa";
-import { MdCancel, MdEmail } from "react-icons/md";
+import { MdCancel, MdContactSupport, MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ scrollToTop }) => {
@@ -16,17 +17,41 @@ const Navbar = ({ scrollToTop }) => {
 
   const [boxShadow, setBoxShadow] = useState("none");
   const [sidebarIcon, setSidebarIcon] = useState(<FaBars />);
-  const [sidebarHeight, setSidebarHeight] = useState("-100%");
+  const [sidebarOpened, setSidebarOpened] = useState(false);
+  const [sidebarIconColor, setSidebarIconColor] = useState("white");
   const [num, setNum] = useState(1);
+  const [navState, setNavState] = useState("trans_nav");
+  const [siteLogo, setSiteLogo] = useState("light-logo");
+
+  const changeColor = () => {
+    if (window.scrollY >= 5) {
+      setNavState("nav");
+      setSiteLogo("dark-logo");
+      setSidebarIconColor("var(--nav-dark)");
+    } else if (sidebarOpened === true && window.scrollY < 5) {
+      setNavState("nav");
+      setSiteLogo("dark-logo");
+      setSidebarIconColor("var(--nav-dark)");
+    } else {
+      setNavState("trans_nav");
+      setSiteLogo("light-logo");
+      setSidebarIconColor("white");
+    }
+  };
+
+  useEffect(() => {
+    changeColor();
+    window.addEventListener("scroll", changeColor);
+  });
 
   const openSidebar = () => {
     if (num === 1) {
       setSidebarIcon(<MdCancel />);
-      setSidebarHeight("0%");
+      setSidebarOpened(true);
       setNum(2);
       setBoxShadow("0 0 20px #000");
     } else {
-      setSidebarHeight("-100%");
+      setSidebarOpened(false);
       setSidebarIcon(<FaBars />);
       setNum(1);
       setBoxShadow("none");
@@ -34,7 +59,7 @@ const Navbar = ({ scrollToTop }) => {
   };
 
   const onMobileLinkClicked = () => {
-    setSidebarHeight("-100%");
+    setSidebarOpened(false);
     setSidebarIcon(<FaBars />);
     setNum(1);
     setBoxShadow("");
@@ -49,19 +74,37 @@ const Navbar = ({ scrollToTop }) => {
     <>
       <nav
         className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3 justify-content-center"
-        id="nav"
+        id={navState}
         style={{ boxShadow: boxShadow }}
       >
-        <img
-          src={process.env.PUBLIC_URL + "/wallM-logo.png"}
-          alt="Profile-pic"
-          className="site-logo"
-          onClick={() => navigate("/")}
-        />
+        <div id={siteLogo} onClick={() => navigate("/")}></div>
         <ul className="nav nav-pills justify-content-center">
           <li className="nav-item">
             <Link to="/" className="nav-link active" onClick={navLinkCLicked}>
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/about"
+              className="nav-link active"
+              onClick={navLinkCLicked}
+            >
+              About us
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/services"
+              className="nav-link active"
+              onClick={navLinkCLicked}
+            >
+              Our Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/ourworks" className="nav-link" onClick={navLinkCLicked}>
+              Our works
             </Link>
           </li>
           <li className="nav-item">
@@ -74,11 +117,6 @@ const Navbar = ({ scrollToTop }) => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/ourworks" className="nav-link" onClick={navLinkCLicked}>
-              Our works
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/contact" className="nav-link" onClick={navLinkCLicked}>
               Contact Us
             </Link>
@@ -86,22 +124,32 @@ const Navbar = ({ scrollToTop }) => {
         </ul>
         <div color="white" className="nav-contact">
           <Link to="/ourworks/gallery" className="gallery-link">
-            <FaRegImages /> Gallery
+            <FaFacebook /> Facebook
           </Link>
           <Link to="#" className="call-link">
             <FaPhoneVolume size={"1.5rem"} />
             Call Us
           </Link>
         </div>
-        <div onClick={openSidebar} className="sidebar-btn">
+        <div
+          onClick={openSidebar}
+          className="sidebar-btn"
+          style={{ color: sidebarIconColor, borderColor: sidebarIconColor }}
+        >
           {sidebarIcon}
         </div>
       </nav>
 
       {/* Sidebar */}
 
-      <div className="sidebar" style={{ left: sidebarHeight }}>
-        <ul style={{ left: sidebarHeight }}>
+      <div
+        className="sidebar"
+        style={{
+          left: `${!sidebarOpened ? "-100%" : "0%"}`,
+          background: "white",
+        }}
+      >
+        <ul style={{ left: `${!sidebarOpened ? "-100%" : "0%"}` }}>
           <li className="nav-item">
             <Link
               to="/"
@@ -113,11 +161,20 @@ const Navbar = ({ scrollToTop }) => {
           </li>
           <li className="nav-item">
             <Link
-              to="/why-choose-us"
+              to="/about"
               className="nav-link"
               onClick={onMobileLinkClicked}
             >
-              <FaThumbsUp /> Why choose us
+              <FaBuilding /> About us
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/services"
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
+              <MdContactSupport /> Our services
             </Link>
           </li>
           <li className="nav-item">
@@ -127,6 +184,15 @@ const Navbar = ({ scrollToTop }) => {
               onClick={onMobileLinkClicked}
             >
               <FaHammer /> Our works
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/why-choose-us"
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
+              <FaThumbsUp /> Why choose us
             </Link>
           </li>
           <li className="nav-item">
@@ -147,7 +213,7 @@ const Navbar = ({ scrollToTop }) => {
               className="nav-link"
               onClick={onMobileLinkClicked}
             >
-              <FaRegImages /> Gallery
+              <FaFacebook /> Facebook
             </Link>
           </li>
           <li>

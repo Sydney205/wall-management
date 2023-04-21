@@ -4,6 +4,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./components/Layout";
 import HomePage from "./components/HomePage";
+import About from './components/About';
+import Services from './components/Services';
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
@@ -39,6 +41,14 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout scrollToTop={scrollToTop} />}>
         <Route index element={<HomePage scrollToTop={scrollToTop} />} />
+        <Route
+          path="/about"
+          element={<About scrollToTop={scrollToTop} />}
+        />
+        <Route
+          path="/services"
+          element={<Services scrollToTop={scrollToTop} />}
+        />
         <Route
           path="/why-choose-us"
           element={<WhyChooseUs scrollToTop={scrollToTop} />}

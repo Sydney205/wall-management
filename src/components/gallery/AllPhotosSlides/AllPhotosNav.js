@@ -10,7 +10,7 @@ const AllPhotosNav = ({ setImageIndex }) => {
       onClick={() => setImageIndex(index)}
     />
   ));
-  return <div className="slide-nav">{photosList}</div>;
+  return <div className="slide-nav" style={{marginTop: '1rem !important'}}>{photosList}</div>;
 };
 
 export default AllPhotosNav;

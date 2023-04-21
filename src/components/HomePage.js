@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Home from './Home';
-import About from './About';
+import Overview from './Overview'
 import Footer from './Footer';
 
 function HomePage({scrollToTop}) {
@@ -9,7 +9,7 @@ function HomePage({scrollToTop}) {
     <main>
         <Navbar scrollToTop={scrollToTop}/>
         <Home />
-        <About scrollToTop={scrollToTop}/>
+        <Overview scrollToTop={scrollToTop}/>
         <Footer />
     </main>
   )

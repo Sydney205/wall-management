@@ -1,28 +1,23 @@
 import React from "react";
-import { FaFacebookSquare, FaWhatsapp } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import GraphicsLogo from "./GraphicsLogo";
 import Typed from "react-typed";
 
 const Home = () => {
   return (
     <>
-      <GraphicsLogo />
-
-      <section className="home-section" id="home-section">
-        <div>
+      <section className="new-home-section">
+        <GraphicsLogo />
+        <div className="home-line">
           <h1 className="display-1">
-            Wall
-            <br />
-            <span className="h12">Management</span>
+            Wall <span className="h12">Management</span>
           </h1>
+          <br />
           <Typed
             style={{
-              fontSize: "20px",
-              fontStyle: "italic",
-              color: "gray !important",
+              fontSize: "25px",
+              color: "white !important",
             }}
-            className="typed-text"
+            className="typed-text display-6 text-center"
             strings={[
               "Building and Branding",
               "Innovation and Renovation",
@@ -35,13 +30,13 @@ const Home = () => {
           />
         </div>
       </section>
-      <div className="line2-div">
-        <p>Wall Management</p>
-        <div className="line-2"></div>
-        <FaFacebookSquare size={"2rem"} className="line-icon" />
-        <FaWhatsapp size={"2rem"} className="line-icon" />
+      {/* <div className="line2-div">
+         <p>Wall Management</p>
+         <div className="line-2"></div>
+         <FaFacebookSquare size={"2rem"} className="line-icon" />
+         <FaWhatsapp size={"2rem"} className="line-icon" />
         <MdEmail size={"2rem"} className="line-icon" />
-      </div>
+        </div>*/}
     </>
   );
 };

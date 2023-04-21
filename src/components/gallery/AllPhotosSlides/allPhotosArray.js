@@ -1,4 +1,7 @@
 export const allPhotosList = [
+
+  // ------------------------------------ BUILDINGS
+
   {
     id: 0,
     desc: "gallery",
@@ -59,6 +62,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal27.jpg",
   },
+
+  // --------------------------------- STONE WORKS
+
   {
     id: 12,
     desc: "gallery",
@@ -74,6 +80,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal32.jpg",
   },
+
+  // -------------------------------------- PAINTINGS
+
   {
     id: 15,
     desc: "gallery",
@@ -94,6 +103,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal53.jpg",
   },
+
+  // ---------------------------------------- KITCHEN SETUP
+
   {
     id: 19,
     desc: "gallery",
@@ -102,7 +114,7 @@ export const allPhotosList = [
   {
     id: 20,
     desc: "gallery",
-    route: "/images/gal19",
+    route: "/images/gal19.jpg",
   },
   {
     id: 21,
@@ -124,6 +136,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal67.jpg",
   },
+
+  // ------------------------------------ CURTAINS
+
   {
     id: 25,
     desc: "gallery",
@@ -159,6 +174,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal82.jpg",
   },
+
+  // --------------------------------------- INTERIOR DESIGN
+
   {
     id: 32,
     desc: "gallery",
@@ -209,6 +227,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/picture.jpg",
   },
+
+  // --------------------------------------- WALLPAPERS
+
   {
     id: 42,
     desc: "gallery",
@@ -244,6 +265,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal77.jpg",
   },
+
+  // ---------------------------------------- PLUMBING MATERIALS
+
   {
     id: 49,
     desc: "gallery",
@@ -264,6 +288,9 @@ export const allPhotosList = [
     desc: "gallery",
     route: "/images/gal54.jpg",
   },
+
+  // ------------------------------------- DECO
+
   {
     id: 53,
     desc: "gallery",

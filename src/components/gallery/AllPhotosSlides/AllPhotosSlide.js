@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { allPhotosList } from "./allPhotosArray";
 import AllPhotosNav from "./AllPhotosNav";
-import { FaChevronRight, FaChevronLeft, FaRegImages } from "react-icons/fa";
-import {MdCancel} from 'react-icons/md'
+import {
+  FaChevronRight,
+  FaChevronLeft,
+  FaArrowLeft,
+} from "react-icons/fa";
 
 const AllPhotosSlide = () => {
   const navigate = useNavigate();
@@ -28,10 +31,10 @@ const AllPhotosSlide = () => {
       key={allPhotosList[imageIndex].id}
       src={allPhotosList[imageIndex].route}
       alt={allPhotosList[imageIndex].desc}
+      style={{ width: "100%", height: "100%" }}
     />
   );
 
- 
   // styles
   const slideFrame = {
     width: "100%",
@@ -49,52 +52,54 @@ const AllPhotosSlide = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "90vw",
-    height: "60vh",
+    maxWidth: "60vw",
+    maxHeight: "80vh",
     border: "none",
     borderRadius: "10px",
     overflow: "hidden",
-    marginTop: "2rem",
+    // marginTop: "1rem",
   };
 
   return (
-    <section className="slide-frame" style={slideFrame}>
-      <FaRegImages size={"3rem"} color="var(--orange)" />
-      
-      <div className="left-arrow-container">
-        <FaChevronLeft
-          className="left-arrow-icon"
-          size={"2rem"}
-          color="var(--white)"
-          onClick={slideLeft}
-        />
-      </div>
-      <div className="right-arrow-container">
-        <FaChevronRight
-          className="right-arrow-icon"
-          size={"2rem"}
-          color="var(--white)"
-          onClick={slideRight}
-        />
-      </div>
-      <div className="big-frame" style={bigFrame}>
-        {mainPhoto}
-      </div>
-      <AllPhotosNav setImageIndex={setImageIndex} />
+    <>
+      <section className="slide-frame" style={slideFrame}>
+        <div
+          style={{
+            position: "absolute",
+            top: "5%",
+            left: "5%",
+            transform: "scale(2)",
+            color: "orange",
+          }}
+          className='cancel-icon'
+          onClick={() => navigate(-1)}
+        >
+          <FaArrowLeft /> Back
+        </div>
+        {/* <FaRegImages size={"3rem"} color="var(--orange)" /> */}
 
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          color: "white",
-          fontWeight: "bold",
-          marginTop: "3rem",
-          fontSize: "1.5rem",
-        }}
-      >
-        <FaChevronLeft /> Continue to site
-      </Link>
-    </section>
+        <div className="left-arrow-container">
+          <FaChevronLeft
+            className="left-arrow-icon"
+            size={"2rem"}
+            color="var(--white)"
+            onClick={slideLeft}
+          />
+        </div>
+        <div className="right-arrow-container">
+          <FaChevronRight
+            className="right-arrow-icon"
+            size={"2rem"}
+            color="var(--white)"
+            onClick={slideRight}
+          />
+        </div>
+        <div className="big-frame" style={bigFrame}>
+          {mainPhoto}
+        </div>
+        <AllPhotosNav setImageIndex={setImageIndex} />
+      </section>
+    </>
   );
 };
 
