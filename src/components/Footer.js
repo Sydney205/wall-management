@@ -35,7 +35,13 @@ const Footer = () => {
               <div className="v-line"></div>
             </li>
             <li>
-              <Link to="/why-choose-us">Why choose us</Link>
+              <Link to="/about">About us</Link>
+            </li>
+            <li>
+              <div className="v-line"></div>
+            </li>
+            <li>
+              <Link to="/services">Our Services</Link>
             </li>
             <li>
               <div className="v-line"></div>
@@ -47,7 +53,7 @@ const Footer = () => {
               <div className="v-line"></div>
             </li>
             <li>
-              <Link to="/gallery">Our gallery</Link>
+              <Link to="/why-choose-us">Why choose us</Link>
             </li>
             <li>
               <div className="v-line"></div>
