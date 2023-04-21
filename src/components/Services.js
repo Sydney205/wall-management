@@ -127,11 +127,11 @@ const Services = ({ scrollToTop }) => {
 
         <button
           onClick={() => {
-            navigate("/services");
+            navigate("/ourworks");
             scrollToTop();
           }}
         >
-          Our Services <FaChevronRight />
+          Our works <FaChevronRight />
         </button>
       </section>
       <Footer />
