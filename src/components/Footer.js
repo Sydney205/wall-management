@@ -28,6 +28,7 @@ const Footer = () => {
         </div>
         <div className="footer-nav">
           <ul>
+            
             <li>
               <Link to="/">Home</Link>
             </li>

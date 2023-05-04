@@ -14,19 +14,19 @@ export const paintingList = [
     desc: "gallery",
     route: "/images/gal1.jpg",
   },
-  {
-    id: 3,
-    desc: "gallery",
-    route: "/images/gal53.jpg",
-  },
+  // {
+  //   id: 3,
+  //   desc: "gallery",
+  //   route: "/images/gal53.jpg",
+  // },
   {
     id: 4,
     desc: "gallery",
     route: "/images/gal8.jpg",
   },
-  {
-    id: 5,
-    desc: "gallery",
-    route: "/images/gal29.jpg",
-  },
+  // {
+  //   id: 5,
+  //   desc: "gallery",
+  //   route: "/images/gal29.jpg",
+  // },
 ];

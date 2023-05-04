@@ -124,12 +124,17 @@ const Navbar = ({ scrollToTop }) => {
         </ul>
         <div color="white" className="nav-contact">
           <Link to="/ourworks/gallery" className="gallery-link">
-            <FaFacebook /> Facebook
+            <FaFacebook /> Follow us{" "}
           </Link>
-          <Link to="#" className="call-link">
+          <a
+            href="tel:07033926060"
+            target={"_blank"}
+            rel={"noreferrer"}
+            className="call-link"
+          >
             <FaPhoneVolume size={"1.5rem"} />
-            Call Us
-          </Link>
+            Make a call
+          </a>
         </div>
         <div
           onClick={openSidebar}
@@ -213,13 +218,20 @@ const Navbar = ({ scrollToTop }) => {
               className="nav-link"
               onClick={onMobileLinkClicked}
             >
-              <FaFacebook /> Facebook
+              <FaFacebook /> Follow us
             </Link>
           </li>
           <li>
-            <Link to="#" className="nav-link" onClick={onMobileLinkClicked}>
-              <FaPhoneVolume /> Call us
-            </Link>
+            <a
+              href="tel:07033926060"
+              target={"_blank"}
+              rel={"noreferrer"}
+              className="nav-link"
+              onClick={onMobileLinkClicked}
+            >
+              <FaPhoneVolume size={"1.5rem"} />
+              Make a call
+            </a>
           </li>
         </ul>
       </div>
