@@ -1,6 +1,6 @@
 import React from "react";
 import { curtainList } from "./curtainArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const Curtains = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const NewInterior = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const NewInterior = () => {
         }}
       >
         <img
-          src={`${process.env.PUBLIC_URL}/images/gal45.jpg`}
+          src={`/images/gal45.jpg`}
           alt="ask"
           style={{
             width: "100%",
@@ -39,14 +39,14 @@ const NewInterior = () => {
         className="img-group"
         onClick={() => navigate("/ourworks/gallery/stoneworks")}
       >
-        <img src={`${process.env.PUBLIC_URL}/images/gal74.jpg`} alt="ask" />
+        <img src={`/images/gal74.jpg`} alt="ask" />
         <div className="img-tag">Wallpapers</div>
       </div>
       <div
         className="img-group"
         onClick={() => navigate("/ourworks/gallery/stoneworks")}
       >
-        <img src={`${process.env.PUBLIC_URL}/images/gal67.jpg`} alt="ask" />
+        <img src={`/images/gal67.jpg`} alt="ask" />
         <div className="img-tag">Curtains</div>
       </div>
     </section>

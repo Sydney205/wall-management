@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { NavHashLink } from "react-router-hash-link";
+// import { NavHashLink } from "../lib/router-compat";
 import {
   FaBars,
   FaHome,
@@ -10,64 +10,39 @@ import {
   FaHammer,
 } from "react-icons/fa";
 import { MdCancel, MdContactSupport, MdEmail } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "../lib/router-compat";
 
 const Navbar = ({ scrollToTop }) => {
   const navigate = useNavigate();
 
-  const [boxShadow, setBoxShadow] = useState("none");
-  const [sidebarIcon, setSidebarIcon] = useState(<FaBars />);
   const [sidebarOpened, setSidebarOpened] = useState(false);
-  const [sidebarIconColor, setSidebarIconColor] = useState("white");
-  const [num, setNum] = useState(1);
   const [navState, setNavState] = useState("trans_nav");
   const [siteLogo, setSiteLogo] = useState("light-logo");
 
-  const changeColor = () => {
-    if (window.scrollY >= 5) {
-      setNavState("nav");
-      setSiteLogo("dark-logo");
-      setSidebarIconColor("var(--nav-dark)");
-    } else if (sidebarOpened === true && window.scrollY < 5) {
-      setNavState("nav");
-      setSiteLogo("dark-logo");
-      setSidebarIconColor("var(--nav-dark)");
-    } else {
-      setNavState("trans_nav");
-      setSiteLogo("light-logo");
-      setSidebarIconColor("white");
-    }
-  };
-
   useEffect(() => {
+    const changeColor = () => {
+      const scrolled = window.scrollY >= 5 || sidebarOpened;
+      setNavState(scrolled ? "nav" : "trans_nav");
+      setSiteLogo(scrolled ? "dark-logo" : "light-logo");
+    };
     changeColor();
-    window.addEventListener("scroll", changeColor);
-  });
+    window.addEventListener("scroll", changeColor, { passive: true });
+    return () => window.removeEventListener("scroll", changeColor);
+  }, [sidebarOpened]);
 
   const openSidebar = () => {
-    if (num === 1) {
-      setSidebarIcon(<MdCancel />);
-      setSidebarOpened(true);
-      setNum(2);
-      setBoxShadow("0 0 20px #000");
-    } else {
-      setSidebarOpened(false);
-      setSidebarIcon(<FaBars />);
-      setNum(1);
-      setBoxShadow("none");
-    }
+    setSidebarOpened((opened) => !opened);
   };
 
   const onMobileLinkClicked = () => {
     setSidebarOpened(false);
-    setSidebarIcon(<FaBars />);
-    setNum(1);
-    setBoxShadow("");
-    scrollToTop();
+    if (scrollToTop) scrollToTop();
+    else window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const navLinkCLicked = () => {
-    scrollToTop();
+    if (scrollToTop) scrollToTop();
+    else window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -75,7 +50,6 @@ const Navbar = ({ scrollToTop }) => {
       <nav
         className="navbar fixed-top navbar-expand-lg navbar-dark p-md-3 justify-content-center"
         id={navState}
-        style={{ boxShadow: boxShadow }}
       >
         <div id={siteLogo} onClick={() => navigate("/")}></div>
         <ul className="nav nav-pills justify-content-center">
@@ -136,25 +110,21 @@ const Navbar = ({ scrollToTop }) => {
             Make a call
           </a>
         </div>
-        <div
+        <button
+          type="button"
+          aria-label={sidebarOpened ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={sidebarOpened}
           onClick={openSidebar}
           className="sidebar-btn"
-          style={{ color: sidebarIconColor, borderColor: sidebarIconColor }}
         >
-          {sidebarIcon}
-        </div>
+          {sidebarOpened ? <MdCancel /> : <FaBars />}
+        </button>
       </nav>
 
       {/* Sidebar */}
 
-      <div
-        className="sidebar"
-        style={{
-          left: `${!sidebarOpened ? "-100%" : "0%"}`,
-          background: "white",
-        }}
-      >
-        <ul style={{ left: `${!sidebarOpened ? "-100%" : "0%"}` }}>
+      <div className={`sidebar${sidebarOpened ? " is-open" : ""}`}>
+        <ul>
           <li className="nav-item">
             <Link
               to="/"
@@ -214,7 +184,7 @@ const Navbar = ({ scrollToTop }) => {
 
           <li>
             <Link
-              to="/gallery"
+              to="/ourworks/gallery"
               className="nav-link"
               onClick={onMobileLinkClicked}
             >

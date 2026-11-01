@@ -1,6 +1,6 @@
 import React from "react";
 import { decoList } from "./decoArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const Deco = () => {
   const navigate = useNavigate();

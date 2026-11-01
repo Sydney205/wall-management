@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { interiorList } from "./interiorArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import { FaChevronRight } from "react-icons/fa";
 
 const InteriorGal = ({scrollToTop}) => {

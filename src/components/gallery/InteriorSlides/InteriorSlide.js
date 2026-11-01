@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { interiorList } from "./interiorArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import InteriorNav from "./InteriorNav";
 
 const InteriorSlide = () => {

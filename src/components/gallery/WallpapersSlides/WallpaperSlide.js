@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { wallpaperList } from "./wallpaperArray";
 import { FaChevronRight, FaChevronLeft, FaRegImages } from "react-icons/fa";
-import { HashLink } from "react-router-hash-link";
+import { HashLink } from "../../../lib/router-compat";
 import WallpapersNav from "./WallpapersNav";
 
 const WallpaperSlide = () => {

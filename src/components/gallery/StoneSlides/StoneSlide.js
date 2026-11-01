@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { stoneList } from "./stoneArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
 import StoneWorkNav from "./StoneWorkNav";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '../../../lib/router-compat'
 
 const StoneSlide = () => {
   const navigate = useNavigate();

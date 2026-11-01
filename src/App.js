@@ -1,11 +1,7 @@
-// App's main Component
-import { Routes, Route } from "react-router-dom";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "./components/Layout";
+import { useRouter } from "next/router";
 import HomePage from "./components/HomePage";
-import About from './components/About';
-import Services from './components/Services';
+import About from "./components/About";
+import Services from "./components/Services";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
@@ -17,8 +13,8 @@ import Buildings from "./components/gallery/BuildingSlides/Buildings";
 import BuildingSlide from "./components/gallery/BuildingSlides/BuildingSlide";
 import Curtains from "./components/gallery/CurtainsSlides/Curtains";
 import CurtainSlide from "./components/gallery/CurtainsSlides/CurtainSlide";
-import Deco from './components/gallery/DecoSlides/Deco';
-import DecoSlide from './components/gallery/DecoSlides/DecoSlide';
+import Deco from "./components/gallery/DecoSlides/Deco";
+import DecoSlide from "./components/gallery/DecoSlides/DecoSlide";
 import Interior from "./components/gallery/InteriorSlides/Interior";
 import InteriorSlide from "./components/gallery/InteriorSlides/InteriorSlide";
 import Kitchen from "./components/gallery/KitchenSlides/Kitchen";
@@ -32,100 +28,47 @@ import StoneSlide from "./components/gallery/StoneSlides/StoneSlide";
 import Wallpapers from "./components/gallery/WallpapersSlides/Wallpapers";
 import WallpaperSlide from "./components/gallery/WallpapersSlides/WallpaperSlide";
 
-function App() {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+const pages = {
+  "/": HomePage,
+  "/about": About,
+  "/services": Services,
+  "/why-choose-us": WhyChooseUs,
+  "/ourworks": Projects,
+  "/contact": Contact,
+  "/ourworks/gallery": Album,
+  "/ourworks/gallery/allphotos": AllPhotos,
+  "/ourworks/gallery/allphotos-slide": AllPhotosSlide,
+  "/ourworks/gallery/buildings": Buildings,
+  "/ourworks/gallery/buildings-slide": BuildingSlide,
+  "/ourworks/gallery/curtains": Curtains,
+  "/ourworks/gallery/curtain-slide": CurtainSlide,
+  "/ourworks/gallery/deco": Deco,
+  "/ourworks/gallery/deco-slide": DecoSlide,
+  "/ourworks/gallery/interior-designs": Interior,
+  "/ourworks/gallery/interior-designs-slide": InteriorSlide,
+  "/ourworks/gallery/kitchen-setup": Kitchen,
+  "/ourworks/gallery/kitchen-slide": KitchenSlide,
+  "/ourworks/gallery/paintings": Paintings,
+  "/ourworks/gallery/painting-slide": PaintingSlide,
+  "/ourworks/gallery/plumbing-materials": Plumbing,
+  "/ourworks/gallery/plumbing-materials-slide": PlumbingSlide,
+  "/ourworks/gallery/stoneworks": StoneWorks,
+  "/ourworks/gallery/stoneworks-slide": StoneSlide,
+  "/ourworks/gallery/wallpapers": Wallpapers,
+  "/ourworks/gallery/wallpapers-slide": WallpaperSlide,
+};
 
-  return (
-    <Routes>
-      <Route path="/" element={<Layout scrollToTop={scrollToTop} />}>
-        <Route index element={<HomePage scrollToTop={scrollToTop} />} />
-        <Route
-          path="/about"
-          element={<About scrollToTop={scrollToTop} />}
-        />
-        <Route
-          path="/services"
-          element={<Services scrollToTop={scrollToTop} />}
-        />
-        <Route
-          path="/why-choose-us"
-          element={<WhyChooseUs scrollToTop={scrollToTop} />}
-        />
-        <Route
-          path="/ourworks"
-          element={<Projects scrollToTop={scrollToTop} />}
-        />
-        <Route
-          path="/contact"
-          element={<Contact scrollToTop={scrollToTop} />}
-        />
-        <Route
-          path="/ourworks/gallery"
-          element={<Album scrollToTop={scrollToTop} />}
-        />
+export const routePaths = Object.keys(pages);
 
-        {/* GALLERY AND PHOTOS SLIDES */}
-        <Route path="/ourworks/gallery/allphotos" element={<AllPhotos />} />
-        <Route
-          path="/ourworks/gallery/allphotos-slide"
-          element={<AllPhotosSlide />}
-        />
-        <Route path="/ourworks/gallery/buildings" element={<Buildings />} />
-        <Route
-          path="/ourworks/gallery/buildings-slide"
-          element={<BuildingSlide />}
-        />
-        <Route path="/ourworks/gallery/curtains" element={<Curtains />} />
-        <Route
-          path="/ourworks/gallery/curtain-slide"
-          element={<CurtainSlide />}
-        />
-        <Route path="/ourworks/gallery/deco" element={<Deco />} />
-        <Route path="/ourworks/gallery/deco-slide" element={<DecoSlide />} />
-        <Route
-          path="/ourworks/gallery/interior-designs"
-          element={<Interior />}
-        />
-        <Route
-          path="/ourworks/gallery/interior-designs-slide"
-          element={<InteriorSlide />}
-        />
-        <Route path="/ourworks/gallery/kitchen-setup" element={<Kitchen />} />
-        <Route
-          path="/ourworks/gallery/kitchen-slide"
-          element={<KitchenSlide />}
-        />
-        <Route path="/ourworks/gallery/paintings" element={<Paintings />} />
-        <Route
-          path="/ourworks/gallery/painting-slide"
-          element={<PaintingSlide />}
-        />
-        <Route
-          path="/ourworks/gallery/plumbing-materials"
-          element={<Plumbing />}
-        />
-        <Route
-          path="/ourworks/gallery/plumbing-materials-slide"
-          element={<PlumbingSlide />}
-        />
-        <Route path="/ourworks/gallery/stoneworks" element={<StoneWorks />} />
-        <Route
-          path="/ourworks/gallery/stoneworks-slide"
-          element={<StoneSlide />}
-        />
-        <Route path="/ourworks/gallery/wallpapers" element={<Wallpapers />} />
-        <Route
-          path="/ourworks/gallery/wallpapers-slide"
-          element={<WallpaperSlide />}
-        />
+export default function App({ path }) {
+  const router = useRouter();
+  const segments = router.query.route;
+  const pathname = Array.isArray(segments)
+    ? `/${segments.join("/")}`
+    : path || "/";
+  const Page = pages[pathname] || NotFound;
 
-        {/* 404 Routing */}
-        <Route path="*" element={<NotFound scrollToTop={scrollToTop} />} />
-      </Route>
-    </Routes>
-  );
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  return <Page scrollToTop={scrollToTop} />;
 }
-
-export default App;

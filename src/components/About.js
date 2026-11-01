@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { FaChevronRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../lib/router-compat";
 import TinyLogo from "./TinyLogo";
 import Footer from "./Footer";
 

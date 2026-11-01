@@ -1,6 +1,6 @@
 import React from "react";
 import { paintingList } from "./paintingArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const PaintingGal = ({scrollToTop}) => {
   const navigate = useNavigate();

@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { FaHammer, FaPrint, FaChevronRight } from "react-icons/fa";
 import { MdPeople } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../lib/router-compat";
 
 const Services = ({ scrollToTop }) => {
   const navigate = useNavigate();

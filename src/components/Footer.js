@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../lib/router-compat";
 import TinyLogo from "./TinyLogo";
 import { FaFacebookSquare, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationPin } from "react-icons/md";

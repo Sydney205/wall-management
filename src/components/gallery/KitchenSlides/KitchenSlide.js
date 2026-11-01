@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { kitchenArray } from "./kitchenArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import KitchenNav from "./KitchenNav";
 
 const KitchenSlide = () => {

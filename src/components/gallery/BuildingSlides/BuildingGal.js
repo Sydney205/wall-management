@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { buildingList } from "./buildingsArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import { FaChevronRight } from "react-icons/fa";
 
 const BuildingGal = ({scrollToTop}) => {

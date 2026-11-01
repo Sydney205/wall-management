@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 import { FaInfoCircle } from 'react-icons/fa'
 import { MdSend, MdThumbUp, MdCheckCircle } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../lib/router-compat";
 
 // Regular Expressions...
 const NAME_REGEX = /^[a-zA-Z][a-zA-Z0-9-_ ]{3,23}$/;

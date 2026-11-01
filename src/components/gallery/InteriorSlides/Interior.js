@@ -1,6 +1,6 @@
 import React from "react";
 import { interiorList } from "./interiorArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const Interior = () => {
   const navigate = useNavigate();

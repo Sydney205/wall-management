@@ -1,7 +1,7 @@
 import React from "react";
 import { buildingList } from "../BuildingSlides/buildingsArray";
 import { paintingList } from "../PaintingSlides/paintingArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const AllPhotos = () => {
   const navigate = useNavigate();

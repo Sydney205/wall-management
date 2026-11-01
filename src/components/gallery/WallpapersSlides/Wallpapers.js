@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import { wallpaperList } from "./wallpaperArray";
 
 const Wallpapers = () => {

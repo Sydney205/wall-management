@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CurtainsNav from "./CurtainsNav";
 import { curtainList } from "./curtainArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '../../../lib/router-compat'
 
 const CurtainSlide = () => {
   const navigate = useNavigate();

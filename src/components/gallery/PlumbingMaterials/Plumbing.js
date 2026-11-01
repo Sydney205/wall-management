@@ -1,6 +1,6 @@
 import React from "react";
 import { plumbingList } from "./plumbingArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const Plumbing = () => {
   const navigate = useNavigate();

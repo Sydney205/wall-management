@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '../lib/router-compat'
 
 const Overview = () => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Overview = () => {
               width: "100%",
               height: "100%",
             }}
-            src={`${process.env.PUBLIC_URL}/images/Animated Images/building-construction.png`}
+            src={`/images/Animated Images/building-construction.png`}
             alt="construction"
           />
         </div>
@@ -120,7 +120,7 @@ const Overview = () => {
               width: "100%",
               height: "100%",
             }}
-            src={`${process.env.PUBLIC_URL}/images/gal22.jpg`}
+            src={`/images/gal22.jpg`}
             alt="room"
           />
           
@@ -221,30 +221,30 @@ const Overview = () => {
             Check out our Gallery
           </h3>
           <div className="gallery">
-            <img src={process.env.PUBLIC_URL + "/images/gal2.jpg"} alt="gal1" />
+            <img src={"/images/gal2.jpg"} alt="gal1" />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal11.jpg"}
+              src={"/images/gal11.jpg"}
               alt="gal2"
             />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal23.jpg"}
+              src={"/images/gal23.jpg"}
               alt="gal3"
             />
-            <img src={process.env.PUBLIC_URL + "/images/gal1.jpg"} alt="gal4" />
+            <img src={"/images/gal1.jpg"} alt="gal4" />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal17.jpg"}
+              src={"/images/gal17.jpg"}
               alt="gal5"
             />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal20.jpg"}
+              src={"/images/gal20.jpg"}
               alt="gal6"
             />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal21.jpg"}
+              src={"/images/gal21.jpg"}
               alt="gal7"
             />
             <img
-              src={process.env.PUBLIC_URL + "/images/gal25.jpg"}
+              src={"/images/gal25.jpg"}
               alt="gal8"
             />
           </div>

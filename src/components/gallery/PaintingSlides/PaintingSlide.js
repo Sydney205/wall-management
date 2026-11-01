@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { paintingList } from "./paintingArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
 import PaintingNav from "./PaintingNav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const PaintingSlide = () => {
   const navigate = useNavigate();

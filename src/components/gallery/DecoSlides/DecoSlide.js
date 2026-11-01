@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DecoNav from "./DecoNav";
 import { decoList } from "./decoArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const DecoSlide = () => {
   const navigate = useNavigate();

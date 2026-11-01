@@ -1,6 +1,6 @@
 import React from "react";
 import { stoneList } from "./stoneArray";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const StoneGal = ({scrollToTop}) => {
   const navigate = useNavigate();

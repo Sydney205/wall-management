@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./WhiteNav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../lib/router-compat";
 import { FaCheckCircle, FaChevronRight, FaRegThumbsUp } from "react-icons/fa";
 import { MdEmail } from 'react-icons/md';
 import Footer from "./Footer";
@@ -88,7 +88,7 @@ const WhyChooseUs = ({ scrollToTop }) => {
               direct communication with client.
             </p>
             <img
-              src={`${process.env.PUBLIC_URL}/images/Animated Images/renovation.png`}
+              src={`/images/Animated Images/renovation.png`}
               alt="future"
               style={{ width: "40vw", height: "60vh" }}
             />
@@ -129,7 +129,7 @@ const WhyChooseUs = ({ scrollToTop }) => {
               of efficiency and to deliver within the time frame
             </p>
             <img
-              src={`${process.env.PUBLIC_URL}/images/Animated Images/team.png`}
+              src={`/images/Animated Images/team.png`}
               alt="future"
               style={{ width: "30vw", height: "40vh" }}
             />
@@ -168,7 +168,7 @@ const WhyChooseUs = ({ scrollToTop }) => {
               services to her customers.
             </p>
             <img
-              src={`${process.env.PUBLIC_URL}/images/Animated Images/future.png`}
+              src={`/images/Animated Images/future.png`}
               alt="future"
               style={{ width: "30vw", height: "60vh" }}
             />
@@ -189,7 +189,7 @@ const WhyChooseUs = ({ scrollToTop }) => {
         </h1>
 
         <img
-          src={process.env.PUBLIC_URL + "/images/certificate.jpg"}
+          src={"/images/certificate.jpg"}
           alt="certificate"
           style={{ height: "100vh" }}
         />

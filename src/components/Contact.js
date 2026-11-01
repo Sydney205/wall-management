@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import { MdSend, MdThumbUp, MdCheckCircle } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../lib/router-compat";
 import emailjs from "@emailjs/browser";
 import Navbar from './WhiteNav';
 import Footer from "./Footer";
@@ -96,10 +96,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        `${process.env.REACT_APP_SERVICE_ID}`,
-        `${process.env.REACT_APP_TEMPLATE_ID}`,
+        `${process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID}`,
+        `${process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID}`,
         form.current,
-        `${process.env.REACT_APP_PUBLIC_KEY}`
+        `${process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY}`
       )
 
       .then(
@@ -143,7 +143,7 @@ const Contact = () => {
           </div> */}
 
           <img
-            src={`${process.env.PUBLIC_URL}/images/Animated Images/Contact man.png`}
+            src={`/images/Animated Images/Contact man.png`}
             alt="contact man"
             id="contact-man-img"
           />

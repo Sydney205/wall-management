@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 import { allPhotosList } from "./allPhotosArray";
 import AllPhotosNav from "./AllPhotosNav";
 import {

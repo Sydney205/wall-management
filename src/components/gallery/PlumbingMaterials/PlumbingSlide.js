@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { plumbingList } from "./plumbingArray";
 import { FaChevronRight, FaChevronLeft, FaArrowLeft } from "react-icons/fa";
 import PlumbingNav from "./PlumbingNav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "../../../lib/router-compat";
 
 const PlumbingSlide = () => {
   const navigate = useNavigate()

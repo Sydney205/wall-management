@@ -9,7 +9,7 @@ import {
   FaBuilding,
 } from "react-icons/fa";
 import { MdCancel, MdEmail, MdContactSupport } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "../lib/router-compat";
 
 const Navbar = ({ scrollToTop }) => {
   const navigate = useNavigate();
